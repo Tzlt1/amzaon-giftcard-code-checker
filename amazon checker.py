@@ -11,7 +11,7 @@ def check_gift_card(session, code):
     }
 
     try:
-        response = session.post(url, headers=headers, data=data)
+        response = session.post(url, headers=headers, data=data, timeout=10)
         if response.status_code == 200:
             if "Enter the claim code" in response.text:
                 print(f"The gift card code {code} is valid and can be redeemed.")
